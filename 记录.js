@@ -21,7 +21,7 @@ npm install --save-dev bable-core babel-loader babel-preset-react babel-preset-e
 三:配置webpack运行环境
 1.创建文件，最终结构如下：
 +--demo
-| +--app
+| +--src
 | |--index.js
 | +--dist
 | +--node_modules
@@ -29,7 +29,7 @@ npm install --save-dev bable-core babel-loader babel-preset-react babel-preset-e
 | ---package.json
 | ---webpack.config.js
 
-app/index.js将作为入口文件，dist用于盛放webpack打包输出的bundle.js,webpack.config.js用于配置webpack环境
+src/index.js将作为入口文件，dist用于盛放webpack打包输出的bundle.js,webpack.config.js用于配置webpack环境
 
 2.设置webpack.config.js
 const path = require('path');
@@ -131,7 +131,7 @@ react组件编写和使用：
 
 写2个组件，用于显示网站的标题(name.js)和链接(link.js)，并require到入口文件中
 +--demo
-| +--app
+| +--src
 | |--+components
 | |----name.js
 | |----link.js	
@@ -242,7 +242,7 @@ module.exports = {
 		port: 9090
 	},
 	module: {
-		loaders: [
+		 rules: [
 		{
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
@@ -268,7 +268,7 @@ npm install less,less-loader --save-dev
 在webpack.config.js修改：
 
 module: {
-        loaders: [
+         rules: [
             {test: /\.less$/, loader: 'style-loader!css-loader!less-loader'},
 
         ]
